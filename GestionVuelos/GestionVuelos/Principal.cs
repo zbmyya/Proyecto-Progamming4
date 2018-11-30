@@ -16,5 +16,19 @@ namespace GestionVuelos
         {
             InitializeComponent();
         }
+
+        private void idaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VuelosIda vuelosIda = new VuelosIda();
+            Visible = false;
+            vuelosIda.Visible = true;
+        }
+
+        private void idaYVueltaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VuelosIdaVuelta vuelosIdaVuelta = new VuelosIdaVuelta();
+            Visible = false;
+            vuelosIdaVuelta.Visible = true;
+        }
     }
 }
