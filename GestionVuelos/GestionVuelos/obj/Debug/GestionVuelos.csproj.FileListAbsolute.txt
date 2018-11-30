@@ -34,3 +34,6 @@ C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug
 C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.Form1.resources
 C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.Properties.Resources.resources
 C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.csproj.GenerateResource.Cache
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.Principal.resources
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.VuelosIda.resources
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.VuelosIdaVuelta.resources
