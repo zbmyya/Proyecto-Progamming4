@@ -1,0 +1,4 @@
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\bin\Debug\Entidades.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\obj\Debug\Entidades.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\obj\Debug\Entidades.pdb

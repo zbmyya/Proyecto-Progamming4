@@ -1,0 +1,11 @@
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\LogicaDatos.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\LogicaDatos.pdb
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\Entidades.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\Npgsql.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\Entidades.pdb
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\Npgsql.pdb
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\bin\Debug\Npgsql.xml
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\obj\Debug\LogicaDatos.csprojResolveAssemblyReference.cache
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\obj\Debug\LogicaDatos.dll
+C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\LogicaDatos\obj\Debug\LogicaDatos.pdb
