@@ -93,8 +93,8 @@ namespace LogicaDatos
             string query = "SELECT idtipdoc, desdocumento FROM tipodocumento ";
             TipoDocumento[] tipoDoc = null;
 
-            //try
-            //{
+            try
+            {
 
                 NpgsqlConnection connection = new NpgsqlConnection(connectionString);
                 connection.Open();
@@ -120,13 +120,14 @@ namespace LogicaDatos
                             tipoDoc[i] = tpDc;
                         }
                     }
-                    return tipoDoc;
+                    
                 }   
-            //}
-            //catch (Exception)
-            //{
+            }
+            catch (Exception)
+            {
 
-            //}
+            }
+            return tipoDoc;
         }
         public void crearUsuarios(Usuarios usuarios)
         {
