@@ -2,6 +2,7 @@ create sequence aeropuerto_sec;
 create table Aeropuerto (
   idAeropuerto int default nextval('aeropuerto_sec') primary key,
   codigoIATA varchar(100),
+  nomAeropuerto varchar(1000),
   idCiudad int
  );
  
