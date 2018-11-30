@@ -2,3 +2,8 @@ C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\bin\Debug\Ent
 C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\bin\Debug\Entidades.pdb
 C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\obj\Debug\Entidades.dll
 C:\Users\Hp\Desktop\Proyecto programacion4\GestionVuelos\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\Entidades\bin\Debug\Entidades.dll
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\Entidades\obj\Debug\Entidades.dll
+C:\Users\Hp\Documents\Proyecto-Progamming4\GestionVuelos\Entidades\obj\Debug\Entidades.pdb
