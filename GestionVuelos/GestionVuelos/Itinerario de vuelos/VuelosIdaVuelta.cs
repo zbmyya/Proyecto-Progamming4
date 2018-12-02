@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicaDatos;
+using Entidades;
 
 namespace GestionVuelos
 {
@@ -15,6 +17,18 @@ namespace GestionVuelos
         public VuelosIdaVuelta()
         {
             InitializeComponent();
+
+            ItinerarioVuelos itinerarioVuelos = new ItinerarioVuelos();
+
+            Ciudad[] ciudadOrigen = itinerarioVuelos.consultarCiudad();
+            valCiudadOrigenIdaVuelta.DisplayMember = "nomciudad";
+            valCiudadOrigenIdaVuelta.ValueMember = "idciudad";
+            valCiudadOrigenIdaVuelta.DataSource = ciudadOrigen;
+
+            Ciudad[] ciudadDestino = itinerarioVuelos.consultarCiudad();
+            valCiudadDestinoIdaVuelta.DisplayMember = "nomciudad";
+            valCiudadDestinoIdaVuelta.ValueMember = "idciudad";
+            valCiudadDestinoIdaVuelta.DataSource = ciudadDestino;
         }
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -54,6 +68,12 @@ namespace GestionVuelos
             {
                 MessageBox.Show(null, ex.Message, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void VuelosIdaVuelta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Principal principal = new Principal();
+            principal.Visible = true;
         }
 
     }

@@ -90,8 +90,6 @@
             // valCiudadDestinoIda
             // 
             this.valCiudadDestinoIda.FormattingEnabled = true;
-            this.valCiudadDestinoIda.Items.AddRange(new object[] {
-            "medellin"});
             this.valCiudadDestinoIda.Location = new System.Drawing.Point(378, 46);
             this.valCiudadDestinoIda.Name = "valCiudadDestinoIda";
             this.valCiudadDestinoIda.Size = new System.Drawing.Size(172, 21);
@@ -109,8 +107,6 @@
             // valCiudadOrigenIda
             // 
             this.valCiudadOrigenIda.FormattingEnabled = true;
-            this.valCiudadOrigenIda.Items.AddRange(new object[] {
-            "cali"});
             this.valCiudadOrigenIda.Location = new System.Drawing.Point(84, 46);
             this.valCiudadOrigenIda.Name = "valCiudadOrigenIda";
             this.valCiudadOrigenIda.Size = new System.Drawing.Size(172, 21);
@@ -171,6 +167,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "VuelosIda";
             this.Text = "VuelosIda";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VuelosIda_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
