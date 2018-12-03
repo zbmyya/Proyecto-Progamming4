@@ -65,5 +65,20 @@ namespace GestionVuelos
             Visible = false;
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            string password = valContrasena.Text;
+
+            if (checkBox1.Checked)
+            {
+                valContrasena.UseSystemPasswordChar = false;
+                valContrasena.Text = password;
+            }
+            else
+            {
+                valContrasena.UseSystemPasswordChar = true;
+                valContrasena.Text = password;
+            }
+        }
     }
 }
