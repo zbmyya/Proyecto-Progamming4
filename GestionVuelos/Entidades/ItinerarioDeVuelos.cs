@@ -15,6 +15,13 @@ namespace Entidades
       get { return idvuelo; }
       set { idvuelo = value; }
     }
+    private int iditinerario;
+
+    public int Iditinerario
+    {
+        get { return iditinerario; }
+        set { iditinerario = value; }
+    }
 
     private string razonsocial;
 

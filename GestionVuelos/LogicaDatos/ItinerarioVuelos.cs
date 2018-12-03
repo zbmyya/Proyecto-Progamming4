@@ -69,8 +69,8 @@ namespace LogicaDatos
 
             ItinerarioDeVuelos[] itinerarioDeVuelos = null;
 
-            //try
-            //{
+            try
+            {
 
                 NpgsqlConnection connection = new NpgsqlConnection(connectionString);
                 connection.Open();
@@ -106,11 +106,79 @@ namespace LogicaDatos
                     }
 
                 }
-            //}
-            //catch (Exception)
-            //{
+            }
+            catch (Exception)
+            {
 
-            //}
+            }
+            return itinerarioDeVuelos;
+
+        }
+
+        public ItinerarioDeVuelos[] consultarItinerarioIdaVuelta(int idciudadorigen, int idciudaddestino, string fechaIda, string fechaVuelta)
+        {
+            string query = "select idvuelo,iditinerario,razonsocial,ciudadorigen.nomciudad ciudadorigen,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
+                          + "horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
+                          + "from vuelos as v1 "
+                          + "inner join aerolinea on aerolinea.idaerolinea = v1.idaerolinea "
+                          + "inner join ciudad ciudadorigen on ciudadorigen.idciudad = v1.idciudadorigen "
+                          + "inner join ciudad ciudaddestino on ciudaddestino.idciudad = v1.idciudaddestino "
+                          + "where ciudadorigen.idciudad = "+idciudadorigen+" and  ciudaddestino.idciudad = " + idciudaddestino + " "
+                          + "and v1.fechasalida = '" + fechaIda + "' "
+                          + "UNION "
+                          + "select idvuelo,iditinerario,razonsocial,ciudadorigen.nomciudad ciudadorigen,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
+                          + "horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
+                          + "from vuelos as v2 "
+                          + "inner join aerolinea on aerolinea.idaerolinea = v2.idaerolinea  "
+                          + "inner join ciudad ciudadorigen on ciudadorigen.idciudad = v2.idciudadorigen "
+                          + "inner join ciudad ciudaddestino on ciudaddestino.idciudad = v2.idciudaddestino "
+                          + "where ciudadorigen.idciudad = " + idciudaddestino + " and  ciudaddestino.idciudad = " + idciudadorigen + " "
+                          + "and v2.fechasalida = '"+fechaVuelta+"'; ";
+
+            ItinerarioDeVuelos[] itinerarioDeVuelos = null;
+
+            try
+            {
+
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+
+                using (NpgsqlDataAdapter npgAdapter = new NpgsqlDataAdapter(command))
+                {
+
+                    DataTable dt = new DataTable();
+
+                    npgAdapter.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        itinerarioDeVuelos = new ItinerarioDeVuelos[dt.Rows.Count];
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            ItinerarioDeVuelos itinerDeVuelos = new ItinerarioDeVuelos
+                            {
+                                Idvuelo = Convert.ToInt32(dt.Rows[i]["idvuelo"]),
+                                Razonsocial = dt.Rows[i]["razonsocial"].ToString(),
+                                Ciudadorigen = dt.Rows[i]["ciudadorigen"].ToString(),
+                                Ciudaddestino = dt.Rows[i]["ciudaddestino"].ToString(),
+                                Fechasalida = Convert.ToDateTime(dt.Rows[i]["fechasalida"]),
+                                Horasalida = dt.Rows[i]["horasalida"].ToString(),
+                                Fechallegada = Convert.ToDateTime(dt.Rows[i]["fechallegada"]),
+                                Horallegada = dt.Rows[i]["horallegada"].ToString(),
+                                Cantsillas = Convert.ToInt32(dt.Rows[i]["cantsillas"]),
+                                Preciovuelo = Convert.ToInt32(dt.Rows[i]["preciovuelo"])
+                            };
+                            itinerarioDeVuelos[i] = itinerDeVuelos;
+                        }
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
             return itinerarioDeVuelos;
 
         }

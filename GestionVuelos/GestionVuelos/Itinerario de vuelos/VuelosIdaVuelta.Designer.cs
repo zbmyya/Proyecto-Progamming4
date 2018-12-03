@@ -40,11 +40,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridVuelosIdaVuelta = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIdaVuelta)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,7 +158,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dataGridVuelosIdaVuelta);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(12, 183);
             this.panel2.Name = "panel2";
@@ -166,13 +166,13 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dataGridView1
+            // dataGridVuelosIdaVuelta
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(621, 186);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridVuelosIdaVuelta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridVuelosIdaVuelta.Location = new System.Drawing.Point(11, 38);
+            this.dataGridVuelosIdaVuelta.Name = "dataGridVuelosIdaVuelta";
+            this.dataGridVuelosIdaVuelta.Size = new System.Drawing.Size(621, 186);
+            this.dataGridVuelosIdaVuelta.TabIndex = 3;
             // 
             // label6
             // 
@@ -198,7 +198,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIdaVuelta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,7 +217,7 @@
         private System.Windows.Forms.DateTimePicker valFechaIdaVuelta2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnConsultarIdaVuelta;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridVuelosIdaVuelta;
         private System.Windows.Forms.Label label6;
     }
 }

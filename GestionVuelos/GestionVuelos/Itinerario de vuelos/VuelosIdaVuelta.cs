@@ -60,8 +60,16 @@ namespace GestionVuelos
                     throw new System.Exception("Seleccione la fecha");
                 }
 
-                var fechaIda = valFechaIdaVuelta1.Value.ToString("dd/MM/yyyy");
-                var fechaVuelta = valFechaIdaVuelta2.Value.ToString("dd/MM/yyyy");
+                string fechaIda = valFechaIdaVuelta1.Value.ToString("yyyy-MM-dd");
+                string fechaVuelta = valFechaIdaVuelta2.Value.ToString("yyyy-MM-dd");
+
+                ItinerarioVuelos itinerarioVuelos = new ItinerarioVuelos();
+
+                int idCiudadOrigen = Convert.ToInt32(valCiudadOrigenIdaVuelta.SelectedValue);
+                int idCiudadDestino = Convert.ToInt32(valCiudadDestinoIdaVuelta.SelectedValue);
+                ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioIdaVuelta(idCiudadOrigen, idCiudadDestino, fechaIda, fechaVuelta);
+
+                dataGridVuelosIdaVuelta.DataSource = itinerarioDeVuelos;
 
             }
             catch (Exception ex)
