@@ -79,3 +79,4 @@ C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\GestionVuelos\o
 C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.Properties.Resources.resources
 C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.VuelosIda.resources
 C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.csproj.GenerateResource.Cache
+C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.consultaReserva.resources

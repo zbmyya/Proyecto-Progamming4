@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ver tus vuelos\consultaReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver tus vuelos\consultaReserva.Designer.cs">
+      <DependentUpon>consultaReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="Itinerario de vuelos\VuelosIda.Designer.cs">
       <DependentUpon>VuelosIda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ver tus vuelos\consultaReserva.resx">
+      <DependentUpon>consultaReserva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,9 +132,7 @@
       <Name>LogicaDatos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ver tus vuelos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

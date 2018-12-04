@@ -73,5 +73,6 @@ namespace GestionVuelos
             Principal principal = new Principal();
             principal.Visible = true;
         }
+
     }
 }
