@@ -12,3 +12,8 @@ C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\Entidades\bin\Debug\Entidades
 C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\Entidades\obj\Debug\Entidades.dll
 C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\Entidades\obj\Debug\Entidades.pdb
 C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\Entidades\bin\Debug\Entidades.dll
+C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\Entidades\bin\Debug\Entidades.pdb
+C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\Entidades\obj\Debug\Entidades.dll
+C:\Users\zhari\OneDrive\Documentos\ProyectoVuelosZ\GestionVuelos\Entidades\obj\Debug\Entidades.pdb

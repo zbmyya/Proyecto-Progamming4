@@ -182,5 +182,69 @@ namespace LogicaDatos
             return itinerarioDeVuelos;
 
         }
+
+        public Reservas[] consultarReservas(int idusuario)
+        {
+            string query = "SELECT rev.idreserva, usu.nombreu, usu.nombred, usu.apellidou, usu.apellidod, "
+                            + "cio.nomciudad as nomciudaor, cid.nomciudad as nomciudadde, vu.preciovuelo, aer.razonsocial, rev.cantpersonas, rev.costoreserva "
+                            + "FROM reserva as rev "
+                            + "inner join usuarios as usu on usu.idusuario = rev.idusuario "
+                            + "inner join vuelos as vu on vu.iditinerario = rev.iditinerario "
+                            + "inner join ciudad as cio on cio.idciudad = vu.idciudadorigen "
+                            + "inner join ciudad as cid on cid.idciudad = vu.idciudaddestino "
+                            + "inner join aerolinea as aer on aer.idaerolinea = vu.idaerolinea "
+                            + "WHERE rev.idusuario = " +idusuario+ " "
+                            + "AND rev.indestado = 1";
+
+            Reservas[] reserva = null;
+
+            try
+            {
+                
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+
+                using (NpgsqlDataAdapter npgAdapter = new NpgsqlDataAdapter(command))
+                {
+                    DataTable dt = new DataTable();
+
+                    npgAdapter.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        reserva = new Reservas[dt.Rows.Count];
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            Reservas reserv = new Reservas
+                            {
+                                IdReserva = Convert.ToInt32(dt.Rows[i]["idreserva"]),
+                                Nombreu = dt.Rows[i]["nombreu"].ToString(),
+                                Nombred = dt.Rows[i]["nombred"].ToString(),
+                                Apellidou = dt.Rows[i]["apellidou"].ToString(),
+                                Apellidod = dt.Rows[i]["apellidod"].ToString(),
+                                Nomciudador = dt.Rows[i]["nomciudaor"].ToString(),
+                                Nomciudaddes = dt.Rows[i]["nomciudadde"].ToString(),
+                                PrecioVuelo = Convert.ToInt32(dt.Rows[i]["preciovuelo"]),
+                                Razonsocial = dt.Rows[i]["razonsocial"].ToString(),
+                                CantPersonas = Convert.ToInt32(dt.Rows[i]["cantpersonas"]),
+                                CostoReserva = Convert.ToInt32(dt.Rows[i]["costoreserva"])
+                            };
+
+                            reserva[i] = reserv;
+                        }
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+
+            return reserva;
+        }
     }
 }

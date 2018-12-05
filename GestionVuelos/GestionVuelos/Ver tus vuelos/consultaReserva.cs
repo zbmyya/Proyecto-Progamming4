@@ -1,4 +1,5 @@
-﻿using LogicaDatos;
+﻿using Entidades;
+using LogicaDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,13 @@ namespace GestionVuelos
 {
     public partial class consultaReserva : Form
     {
-        public consultaReserva()
+        public consultaReserva(int idusuario)
         {
             InitializeComponent();
 
             ItinerarioVuelos itinerarioVuelos = new ItinerarioVuelos();
-
+            Reservas[] reserva = itinerarioVuelos.consultarReservas(idusuario);
+            dataGridReservas.DataSource = reserva;
 
         }
 

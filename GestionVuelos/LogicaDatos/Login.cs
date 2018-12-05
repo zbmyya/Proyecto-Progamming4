@@ -147,5 +147,56 @@ namespace LogicaDatos
 
             }
         }
+
+        public Usuarios buscarDatosUsuario(string nombreUsuario)
+        {
+            string query = "select idusuario,nombreu,nombred,apellidou,apellidod,tipdocumento,numdocumento, "
+                        + "usuariosis,passwordsis,celular,direccion,email "
+                        + "from usuarios where usuariosis = '" + nombreUsuario + "'";
+            Usuarios usu = null;
+            try
+            {
+
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+
+                using (NpgsqlDataAdapter npgAdapter = new NpgsqlDataAdapter(command))
+                {
+
+                    DataTable dt = new DataTable();
+
+                    npgAdapter.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            usu = new Usuarios
+                            {
+                                IdUsuario = Convert.ToInt32(dt.Rows[i]["idUsuario"]),
+                                Nombreu = dt.Rows[i]["nombreu"].ToString(),
+                                Nombred = dt.Rows[i]["nombred"].ToString(),
+                                Apellidou = dt.Rows[i]["apellidou"].ToString(),
+                                Apellidod = dt.Rows[i]["apellidod"].ToString(),
+                                Tipdocumento = Convert.ToInt32(dt.Rows[i]["tipdocumento"]),
+                                Numdocumento = Convert.ToInt32(dt.Rows[i]["numdocumento"]),
+                                Usuariosis = dt.Rows[i]["usuariosis"].ToString(),
+                                Passwordsis = dt.Rows[i]["passwordsis"].ToString(),
+                                Celular = dt.Rows[i]["celular"].ToString(),
+                                Direccion = dt.Rows[i]["direccion"].ToString(),
+                                Email = dt.Rows[i]["email"].ToString(),
+                            };
+                        }
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return usu;
+        }
     }
 }

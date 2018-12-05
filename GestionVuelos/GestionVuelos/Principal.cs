@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Caching;
 
 namespace GestionVuelos
 {
@@ -16,7 +17,8 @@ namespace GestionVuelos
         {
             InitializeComponent();
         }
-
+        
+        private ObjectCache cacheName = MemoryCache.Default;
         private void idaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VuelosIda vuelosIda = new VuelosIda();
@@ -31,26 +33,6 @@ namespace GestionVuelos
             vuelosIdaVuelta.Visible = true;
         }
 
-        private void Principal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Desea Cerrar la sesion?", "Cerrar Sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                Form1 form1 = new Form1();
-                form1.Visible = true;
-            }
-            else
-            {
-                return;
-            }
-        }
-
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -58,6 +40,8 @@ namespace GestionVuelos
 
             if (result == DialogResult.Yes)
             {
+                cacheName.Remove("IdUsuario", null);
+
                 Form1 form1 = new Form1();
                 form1.Visible = true;
                 this.Visible = false;
@@ -71,9 +55,33 @@ namespace GestionVuelos
 
         private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            consultaReserva reservas = new consultaReserva();
+            int idusuario = Convert.ToInt32(cacheName["IdUsuario"]);
+
+            consultaReserva reservas = new consultaReserva(idusuario);
             this.Visible = false;
             reservas.Visible = true;
+        }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Desea Cerrar la sesion?", "Cerrar Sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                cacheName.Remove("IdUsuario",null);
+                Form1 form1 = new Form1();
+                form1.Visible = true;
+            }
+            else
+            {
+                switch (e.CloseReason)
+                {
+                    case CloseReason.UserClosing:
+                        e.Cancel = true;
+                        break;
+                } 
+            }
         }
     }
 }
