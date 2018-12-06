@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+using Entidades;
 
 namespace GestionVuelos
 {
@@ -57,6 +58,10 @@ namespace GestionVuelos
         {
             int idusuario = Convert.ToInt32(cacheName["IdUsuario"]);
 
+
+            Usuarios usu = new Usuarios();
+
+            usu = (Usuarios) cacheName["cacheUsuario"];
             consultaReserva reservas = new consultaReserva(idusuario);
             this.Visible = false;
             reservas.Visible = true;
