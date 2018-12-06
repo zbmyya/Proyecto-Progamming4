@@ -91,11 +91,6 @@ namespace GestionVuelos
             }        
         }
 
-        private void CrearUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void CrearUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form1 login = new Form1();

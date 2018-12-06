@@ -45,7 +45,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridVuelosVuelta = new System.Windows.Forms.DataGridView();
             this.panelVuelosVuelta = new System.Windows.Forms.Panel();
+            this.reservarVuelo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnEscalas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVuelosIda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIda)).BeginInit();
@@ -67,7 +69,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(767, 165);
+            this.panel1.Size = new System.Drawing.Size(767, 152);
             this.panel1.TabIndex = 0;
             // 
             // btnConsultarIdaVuelta
@@ -167,9 +169,9 @@
             this.panelVuelosIda.Controls.Add(this.seleccionarVuelo);
             this.panelVuelosIda.Controls.Add(this.dataGridVuelosIda);
             this.panelVuelosIda.Controls.Add(this.label6);
-            this.panelVuelosIda.Location = new System.Drawing.Point(12, 183);
+            this.panelVuelosIda.Location = new System.Drawing.Point(12, 167);
             this.panelVuelosIda.Name = "panelVuelosIda";
-            this.panelVuelosIda.Size = new System.Drawing.Size(767, 279);
+            this.panelVuelosIda.Size = new System.Drawing.Size(767, 275);
             this.panelVuelosIda.TabIndex = 1;
             this.panelVuelosIda.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -186,7 +188,7 @@
             // dataGridVuelosIda
             // 
             this.dataGridVuelosIda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridVuelosIda.Location = new System.Drawing.Point(11, 38);
+            this.dataGridVuelosIda.Location = new System.Drawing.Point(11, 36);
             this.dataGridVuelosIda.Name = "dataGridVuelosIda";
             this.dataGridVuelosIda.Size = new System.Drawing.Size(742, 186);
             this.dataGridVuelosIda.TabIndex = 3;
@@ -195,7 +197,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 10);
+            this.label6.Location = new System.Drawing.Point(7, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(239, 24);
             this.label6.TabIndex = 2;
@@ -211,13 +213,25 @@
             // 
             // panelVuelosVuelta
             // 
+            this.panelVuelosVuelta.Controls.Add(this.btnEscalas);
+            this.panelVuelosVuelta.Controls.Add(this.reservarVuelo);
             this.panelVuelosVuelta.Controls.Add(this.dataGridVuelosVuelta);
             this.panelVuelosVuelta.Controls.Add(this.label7);
-            this.panelVuelosVuelta.Location = new System.Drawing.Point(12, 462);
+            this.panelVuelosVuelta.Location = new System.Drawing.Point(12, 446);
             this.panelVuelosVuelta.Name = "panelVuelosVuelta";
-            this.panelVuelosVuelta.Size = new System.Drawing.Size(767, 252);
+            this.panelVuelosVuelta.Size = new System.Drawing.Size(767, 292);
             this.panelVuelosVuelta.TabIndex = 3;
             this.panelVuelosVuelta.Visible = false;
+            // 
+            // reservarVuelo
+            // 
+            this.reservarVuelo.Location = new System.Drawing.Point(635, 239);
+            this.reservarVuelo.Name = "reservarVuelo";
+            this.reservarVuelo.Size = new System.Drawing.Size(125, 45);
+            this.reservarVuelo.TabIndex = 5;
+            this.reservarVuelo.Text = "Reservar vuelo";
+            this.reservarVuelo.UseVisualStyleBackColor = true;
+            this.reservarVuelo.Click += new System.EventHandler(this.reservarVuelo_Click_1);
             // 
             // label7
             // 
@@ -229,11 +243,23 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Disponibilidad de vuelos vuelta";
             // 
+            // btnEscalas
+            // 
+            this.btnEscalas.Location = new System.Drawing.Point(515, 240);
+            this.btnEscalas.Name = "btnEscalas";
+            this.btnEscalas.Size = new System.Drawing.Size(114, 42);
+            this.btnEscalas.TabIndex = 6;
+            this.btnEscalas.Text = "Ver escalas";
+            this.btnEscalas.UseVisualStyleBackColor = true;
+            this.btnEscalas.Visible = false;
+            this.btnEscalas.Click += new System.EventHandler(this.btnEscalas_Click);
+            // 
             // VuelosIdaVuelta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 727);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(801, 552);
             this.Controls.Add(this.panelVuelosVuelta);
             this.Controls.Add(this.panelVuelosIda);
             this.Controls.Add(this.panel1);
@@ -272,5 +298,7 @@
         private System.Windows.Forms.DataGridView dataGridVuelosVuelta;
         private System.Windows.Forms.Panel panelVuelosVuelta;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button reservarVuelo;
+        private System.Windows.Forms.Button btnEscalas;
     }
 }

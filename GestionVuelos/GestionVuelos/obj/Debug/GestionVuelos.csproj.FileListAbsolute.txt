@@ -105,3 +105,4 @@ C:\Users\Hp\Documents\marterV2\GestionVuelos\GestionVuelos\obj\Debug\GestionVuel
 C:\Users\Hp\Documents\marterV2\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.csproj.GenerateResource.Cache
 C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.AgregarReserva.resources
 C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.consultaReserva.resources
+C:\Users\Hp\Documents\ProyectoVuelos\GestionVuelos\GestionVuelos\obj\Debug\GestionVuelos.Escalas.resources

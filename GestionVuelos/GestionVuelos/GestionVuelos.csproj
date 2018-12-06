@@ -45,10 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarReserva.cs">
+    <Compile Include="Itinerario de vuelos\Escalas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarReserva.Designer.cs">
+    <Compile Include="Itinerario de vuelos\Escalas.Designer.cs">
+      <DependentUpon>Escalas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Itinerario de vuelos\AgregarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Itinerario de vuelos\AgregarReserva.Designer.cs">
       <DependentUpon>AgregarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="Ver tus vuelos\consultaReserva.cs">
@@ -89,7 +95,10 @@
     <Compile Include="Itinerario de vuelos\VuelosIda.Designer.cs">
       <DependentUpon>VuelosIda.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AgregarReserva.resx">
+    <EmbeddedResource Include="Itinerario de vuelos\Escalas.resx">
+      <DependentUpon>Escalas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Itinerario de vuelos\AgregarReserva.resx">
       <DependentUpon>AgregarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver tus vuelos\consultaReserva.resx">

@@ -41,6 +41,7 @@
             this.dataGridVuelosIda = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.reservarVuelo = new System.Windows.Forms.Button();
+            this.btnEscalas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIda)).BeginInit();
@@ -161,19 +162,32 @@
             // 
             // reservarVuelo
             // 
-            this.reservarVuelo.Location = new System.Drawing.Point(536, 417);
+            this.reservarVuelo.Location = new System.Drawing.Point(536, 420);
             this.reservarVuelo.Name = "reservarVuelo";
-            this.reservarVuelo.Size = new System.Drawing.Size(125, 45);
+            this.reservarVuelo.Size = new System.Drawing.Size(125, 42);
             this.reservarVuelo.TabIndex = 4;
             this.reservarVuelo.Text = "Reservar vuelo";
             this.reservarVuelo.UseVisualStyleBackColor = true;
             this.reservarVuelo.Click += new System.EventHandler(this.reservarVuelo_Click);
             // 
+            // btnEscalas
+            // 
+            this.btnEscalas.Location = new System.Drawing.Point(416, 420);
+            this.btnEscalas.Name = "btnEscalas";
+            this.btnEscalas.Size = new System.Drawing.Size(114, 42);
+            this.btnEscalas.TabIndex = 7;
+            this.btnEscalas.Text = "Ver escalas";
+            this.btnEscalas.UseVisualStyleBackColor = true;
+            this.btnEscalas.Visible = false;
+            this.btnEscalas.Click += new System.EventHandler(this.btnEscalas_Click);
+            // 
             // VuelosIda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 471);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(673, 468);
+            this.Controls.Add(this.btnEscalas);
             this.Controls.Add(this.reservarVuelo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -204,5 +218,6 @@
         private System.Windows.Forms.DataGridView dataGridVuelosIda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button reservarVuelo;
+        private System.Windows.Forms.Button btnEscalas;
     }
 }

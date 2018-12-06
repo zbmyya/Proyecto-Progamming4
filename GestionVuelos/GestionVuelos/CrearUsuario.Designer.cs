@@ -303,7 +303,6 @@
             this.Name = "CrearUsuario";
             this.Text = "CrearUsuario";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CrearUsuario_FormClosed);
-            this.Load += new System.EventHandler(this.CrearUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

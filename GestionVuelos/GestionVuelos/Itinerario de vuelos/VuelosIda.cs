@@ -14,6 +14,9 @@ namespace GestionVuelos
 {
     public partial class VuelosIda : Form
     {
+        ItinerarioDeVuelos[] escala;
+        bool flagEscala;
+        int preciovuelo;
         public VuelosIda()
         {
             InitializeComponent();
@@ -59,6 +62,10 @@ namespace GestionVuelos
                 int idCiudadDestino = Convert.ToInt32(valCiudadDestinoIda.SelectedValue);
                 ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioIda(idCiudadOrigen, idCiudadDestino, fecha);
 
+                if (itinerarioDeVuelos == null)
+                {
+                    throw new System.Exception("No hay vuelos disponibles para estos filtros");
+                }
                 dataGridVuelosIda.DataSource = itinerarioDeVuelos;
 
             }
@@ -76,20 +83,64 @@ namespace GestionVuelos
 
         private void reservarVuelo_Click(object sender, EventArgs e)
         {
-            AgregarReserva agregarReserva = new AgregarReserva();
+            try
+            {
+                AgregarReserva agregarReserva = new AgregarReserva();
 
-            int iditinerario = (int)dataGridVuelosIda.CurrentRow.Cells["Iditinerario"].Value;
-            int idciudadorigen = (int)dataGridVuelosIda.CurrentRow.Cells["Idciudadorigen"].Value;
-            int idciudaddestino = (int)dataGridVuelosIda.CurrentRow.Cells["Idciudaddestino"].Value;
-            string ciudadorigen = (string)dataGridVuelosIda.CurrentRow.Cells["Ciudadorigen"].Value;
-            string ciudaddestino = (string)dataGridVuelosIda.CurrentRow.Cells["Ciudaddestino"].Value;
-            int preciovuelo = (int)dataGridVuelosIda.CurrentRow.Cells["Preciovuelo"].Value;
+                int iditinerario = (int)dataGridVuelosIda.CurrentRow.Cells["Iditinerario"].Value;
+                int idciudadorigen = (int)dataGridVuelosIda.CurrentRow.Cells["Idciudadorigen"].Value;
+                int idciudaddestino = (int)dataGridVuelosIda.CurrentRow.Cells["Idciudaddestino"].Value;
+                string ciudadorigen = (string)dataGridVuelosIda.CurrentRow.Cells["Ciudadorigen"].Value;
+                string ciudaddestino = (string)dataGridVuelosIda.CurrentRow.Cells["Ciudaddestino"].Value;
+                int precioida = (int)dataGridVuelosIda.CurrentRow.Cells["Preciovuelo"].Value;
+                
+
+                ItinerarioVuelos vuelosEscala = new ItinerarioVuelos();
+                escala = vuelosEscala.consultarEscalas(iditinerario);
+
+                if(flagEscala == false){
+                    preciovuelo = precioida;
+                    if (escala != null)
+                    {
+                        btnEscalas.Visible = true;
+                        flagEscala = true;
+                        for (int i = 0; i < escala.Length; i++)
+                        {
+                            preciovuelo = preciovuelo + escala[i].Preciovuelo;
+                        }
+                        throw new System.Exception("Este vuelo tiene escalas, clic en 'Ver escalas'");
+                    }
+                    else
+                    {
+                        flagEscala = false;
+                        btnEscalas.Visible = false;
+                        preciovuelo = (int)dataGridVuelosIda.CurrentRow.Cells["Preciovuelo"].Value;
+                    }
+                }
+                else
+                {
+                    flagEscala = false;
+                    btnEscalas.Visible = false;
+                }
+                
+
+                agregarReserva.datosAdicionales(iditinerario, idciudadorigen, idciudaddestino, ciudadorigen, ciudaddestino, preciovuelo);
+                agregarReserva.Visible = true;
+                Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(null, ex.Message, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEscalas_Click(object sender, EventArgs e)
+        {
+            Escalas escalas = new Escalas();
+            escalas.Visible = true;
 
 
-
-            agregarReserva.datosAdicionales(iditinerario, idciudadorigen, idciudaddestino, ciudadorigen, ciudaddestino, preciovuelo);
-            agregarReserva.Visible = true;
-            Enabled = true;
+            escalas.llegarGridEscalas(escala);
         }
 
     }
