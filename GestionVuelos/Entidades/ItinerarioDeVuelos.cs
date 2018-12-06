@@ -30,6 +30,14 @@ namespace Entidades
         get { return razonsocial; }
         set { razonsocial = value; }
     }
+    private int idciudadorigen;
+
+    public int Idciudadorigen
+    {
+        get { return idciudadorigen; }
+        set { idciudadorigen = value; }
+    }
+
     private string ciudadorigen;
 
     public string Ciudadorigen
@@ -37,6 +45,15 @@ namespace Entidades
         get { return ciudadorigen; }
         set { ciudadorigen = value; }
     }
+
+    private int idciudaddestino;
+
+    public int Idciudaddestino
+    {
+        get { return idciudaddestino; }
+        set { idciudaddestino = value; }
+    }
+
     private string ciudaddestino;
 
     public string Ciudaddestino

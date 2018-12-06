@@ -40,6 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridVuelosIda = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.reservarVuelo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIda)).BeginInit();
@@ -133,11 +134,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.reservarVuelo);
             this.panel2.Controls.Add(this.dataGridVuelosIda);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(13, 150);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(648, 261);
+            this.panel2.Size = new System.Drawing.Size(648, 303);
             this.panel2.TabIndex = 1;
             // 
             // dataGridVuelosIda
@@ -158,11 +160,21 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Disponibilidad de vuelos";
             // 
+            // reservarVuelo
+            // 
+            this.reservarVuelo.Location = new System.Drawing.Point(507, 255);
+            this.reservarVuelo.Name = "reservarVuelo";
+            this.reservarVuelo.Size = new System.Drawing.Size(125, 45);
+            this.reservarVuelo.TabIndex = 3;
+            this.reservarVuelo.Text = "Reservar vuelo";
+            this.reservarVuelo.UseVisualStyleBackColor = true;
+            this.reservarVuelo.Click += new System.EventHandler(this.reservarVuelo_Click);
+            // 
             // VuelosIda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 423);
+            this.ClientSize = new System.Drawing.Size(673, 465);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "VuelosIda";
@@ -191,5 +203,6 @@
         private System.Windows.Forms.Button btnConsultarIda;
         private System.Windows.Forms.DataGridView dataGridVuelosIda;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button reservarVuelo;
     }
 }

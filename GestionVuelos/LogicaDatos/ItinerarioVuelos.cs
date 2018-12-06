@@ -58,7 +58,7 @@ namespace LogicaDatos
 
         public ItinerarioDeVuelos[] consultarItinerarioIda(int idciudadorigen, int idciudaddestino, string fecha)
         {
-            string query = "select idvuelo,razonsocial,ciudadorigen.nomciudad ciudadorigen,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
+            string query = "select idvuelo,iditinerario,razonsocial,ciudadorigen.idciudad idciudadorigen, ciudadorigen.nomciudad ciudadorigen,ciudaddestino.idciudad idciudaddestino,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
                           +"horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
                           +"from vuelos "
                           +"inner join aerolinea on aerolinea.idaerolinea = vuelos.idaerolinea "
@@ -91,8 +91,11 @@ namespace LogicaDatos
                             ItinerarioDeVuelos itinerDeVuelos = new ItinerarioDeVuelos
                             {
                                 Idvuelo = Convert.ToInt32(dt.Rows[i]["idvuelo"]),
+                                Iditinerario = Convert.ToInt32(dt.Rows[i]["iditinerario"]),
                                 Razonsocial = dt.Rows[i]["razonsocial"].ToString(),
+                                Idciudadorigen = Convert.ToInt32(dt.Rows[i]["idciudadorigen"]),
                                 Ciudadorigen = dt.Rows[i]["ciudadorigen"].ToString(),
+                                Idciudaddestino = Convert.ToInt32(dt.Rows[i]["idciudaddestino"]),
                                 Ciudaddestino = dt.Rows[i]["ciudaddestino"].ToString(),
                                 Fechasalida = Convert.ToDateTime(dt.Rows[i]["fechasalida"]),
                                 Horasalida = dt.Rows[i]["horasalida"].ToString(),
@@ -115,25 +118,16 @@ namespace LogicaDatos
 
         }
 
-        public ItinerarioDeVuelos[] consultarItinerarioIdaVuelta(int idciudadorigen, int idciudaddestino, string fechaIda, string fechaVuelta)
+        public ItinerarioDeVuelos[] consultarItinerarioVuelta(int idciudadorigen, int idciudaddestino, string fechaVuelta, int iditinerario)
         {
             string query = "select idvuelo,iditinerario,razonsocial,ciudadorigen.nomciudad ciudadorigen,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
-                          + "horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
-                          + "from vuelos as v1 "
-                          + "inner join aerolinea on aerolinea.idaerolinea = v1.idaerolinea "
-                          + "inner join ciudad ciudadorigen on ciudadorigen.idciudad = v1.idciudadorigen "
-                          + "inner join ciudad ciudaddestino on ciudaddestino.idciudad = v1.idciudaddestino "
-                          + "where ciudadorigen.idciudad = "+idciudadorigen+" and  ciudaddestino.idciudad = " + idciudaddestino + " "
-                          + "and v1.fechasalida = '" + fechaIda + "' "
-                          + "UNION "
-                          + "select idvuelo,iditinerario,razonsocial,ciudadorigen.nomciudad ciudadorigen,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
                           + "horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
                           + "from vuelos as v2 "
                           + "inner join aerolinea on aerolinea.idaerolinea = v2.idaerolinea  "
                           + "inner join ciudad ciudadorigen on ciudadorigen.idciudad = v2.idciudadorigen "
                           + "inner join ciudad ciudaddestino on ciudaddestino.idciudad = v2.idciudaddestino "
                           + "where ciudadorigen.idciudad = " + idciudaddestino + " and  ciudaddestino.idciudad = " + idciudadorigen + " "
-                          + "and v2.fechasalida = '"+fechaVuelta+"'; ";
+                          + "and v2.fechasalida = '" + fechaVuelta + "' and iditinerario = "+iditinerario+"; ";
 
             ItinerarioDeVuelos[] itinerarioDeVuelos = null;
 
@@ -159,6 +153,7 @@ namespace LogicaDatos
                             ItinerarioDeVuelos itinerDeVuelos = new ItinerarioDeVuelos
                             {
                                 Idvuelo = Convert.ToInt32(dt.Rows[i]["idvuelo"]),
+                                Iditinerario = Convert.ToInt32(dt.Rows[i]["iditinerario"]),
                                 Razonsocial = dt.Rows[i]["razonsocial"].ToString(),
                                 Ciudadorigen = dt.Rows[i]["ciudadorigen"].ToString(),
                                 Ciudaddestino = dt.Rows[i]["ciudaddestino"].ToString(),
@@ -181,6 +176,27 @@ namespace LogicaDatos
             }
             return itinerarioDeVuelos;
 
+        }
+
+        public void InsertarReserva(int iditinerario, int idusuario, int indestado, int cantpersonas, int costoreserva)
+        {
+            string query = "INSERT INTO reserva "
+                          + "(iditinerario,idusuario,indestado,cantpersonas,costoreserva) "
+                          + "VALUES (" + iditinerario + "," + idusuario + "," + indestado + "," + cantpersonas + "," + costoreserva + ");";
+
+            try
+            {
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }
