@@ -61,15 +61,17 @@ namespace GestionVuelos
                 }
 
                 string fechaIda = valFechaIdaVuelta1.Value.ToString("yyyy-MM-dd");
-                string fechaVuelta = valFechaIdaVuelta2.Value.ToString("yyyy-MM-dd");
 
                 ItinerarioVuelos itinerarioVuelos = new ItinerarioVuelos();
 
                 int idCiudadOrigen = Convert.ToInt32(valCiudadOrigenIdaVuelta.SelectedValue);
                 int idCiudadDestino = Convert.ToInt32(valCiudadDestinoIdaVuelta.SelectedValue);
-                ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioIdaVuelta(idCiudadOrigen, idCiudadDestino, fechaIda, fechaVuelta);
+                ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioIda(idCiudadOrigen, idCiudadDestino, fechaIda);
 
-                dataGridVuelosIdaVuelta.DataSource = itinerarioDeVuelos;
+                dataGridVuelosIda.DataSource = itinerarioDeVuelos;
+                panelVuelosIda.Enabled = true;
+                panelVuelosIda.Visible = true;
+                panelVuelosVuelta.Visible = false;
 
             }
             catch (Exception ex)
@@ -82,6 +84,23 @@ namespace GestionVuelos
         {
             Principal principal = new Principal();
             principal.Visible = true;
+        }
+
+        private void seleccionarVuelo_Click(object sender, EventArgs e)
+        {
+            int iditinerario = (int)dataGridVuelosIda.CurrentRow.Cells["Iditinerario"].Value;
+            string fechaVuelta = valFechaIdaVuelta2.Value.ToString("yyyy-MM-dd");
+
+            int idCiudadOrigen = Convert.ToInt32(valCiudadOrigenIdaVuelta.SelectedValue);
+            int idCiudadDestino = Convert.ToInt32(valCiudadDestinoIdaVuelta.SelectedValue);
+
+            ItinerarioVuelos itinerarioVuelos = new ItinerarioVuelos();
+            ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioVuelta(idCiudadOrigen, idCiudadDestino, fechaVuelta, iditinerario);
+
+            dataGridVuelosVuelta.DataSource = itinerarioDeVuelos;
+
+            panelVuelosIda.Enabled = false;
+            panelVuelosVuelta.Visible = true;
         }
 
     }
