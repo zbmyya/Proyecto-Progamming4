@@ -58,14 +58,14 @@ namespace LogicaDatos
 
         public ItinerarioDeVuelos[] consultarItinerarioIda(int idciudadorigen, int idciudaddestino, string fecha)
         {
-            string query = "select idvuelo,razonsocial,ciudadorigen.nomciudad ciudadorigen,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
-                          +"horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
-                          +"from vuelos "
-                          +"inner join aerolinea on aerolinea.idaerolinea = vuelos.idaerolinea "
-                          +"inner join ciudad ciudadorigen on ciudadorigen.idciudad = vuelos.idciudadorigen "
-                          +"inner join ciudad ciudaddestino on ciudaddestino.idciudad = vuelos.idciudaddestino "
-                          +"where ciudadorigen.idciudad = "+idciudadorigen+" and  ciudaddestino.idciudad = "+idciudaddestino+" " 
-                          +"and fechasalida = '"+fecha+"' ";
+            string query = "select idvuelo,iditinerario,razonsocial,ciudadorigen.idciudad idciudadorigen, ciudadorigen.nomciudad ciudadorigen,ciudaddestino.idciudad idciudaddestino,ciudaddestino.nomciudad ciudaddestino,fechasalida, "
+                          + "horasalida,fechallegada,horallegada,cantsillas,preciovuelo "
+                          + "from vuelos "
+                          + "inner join aerolinea on aerolinea.idaerolinea = vuelos.idaerolinea "
+                          + "inner join ciudad ciudadorigen on ciudadorigen.idciudad = vuelos.idciudadorigen "
+                          + "inner join ciudad ciudaddestino on ciudaddestino.idciudad = vuelos.idciudaddestino "
+                          + "where ciudadorigen.idciudad = " + idciudadorigen + " and  ciudaddestino.idciudad = " + idciudaddestino + " "
+                          + "and fechasalida = '" + fecha + "' ";
 
             ItinerarioDeVuelos[] itinerarioDeVuelos = null;
 
@@ -91,8 +91,11 @@ namespace LogicaDatos
                             ItinerarioDeVuelos itinerDeVuelos = new ItinerarioDeVuelos
                             {
                                 Idvuelo = Convert.ToInt32(dt.Rows[i]["idvuelo"]),
+                                Iditinerario = Convert.ToInt32(dt.Rows[i]["iditinerario"]),
                                 Razonsocial = dt.Rows[i]["razonsocial"].ToString(),
+                                Idciudadorigen = Convert.ToInt32(dt.Rows[i]["idciudadorigen"]),
                                 Ciudadorigen = dt.Rows[i]["ciudadorigen"].ToString(),
+                                Idciudaddestino = Convert.ToInt32(dt.Rows[i]["idciudaddestino"]),
                                 Ciudaddestino = dt.Rows[i]["ciudaddestino"].ToString(),
                                 Fechasalida = Convert.ToDateTime(dt.Rows[i]["fechasalida"]),
                                 Horasalida = dt.Rows[i]["horasalida"].ToString(),
@@ -101,7 +104,7 @@ namespace LogicaDatos
                                 Cantsillas = Convert.ToInt32(dt.Rows[i]["cantsillas"]),
                                 Preciovuelo = Convert.ToInt32(dt.Rows[i]["preciovuelo"])
                             };
-                            itinerarioDeVuelos[i] = itinerDeVuelos;            
+                            itinerarioDeVuelos[i] = itinerDeVuelos;
                         }
                     }
 
@@ -245,6 +248,27 @@ namespace LogicaDatos
 
 
             return reserva;
+        }
+
+        public void InsertarReserva(int iditinerario, int idusuario, int indestado, int cantpersonas, int costoreserva)
+        {
+            string query = "INSERT INTO reserva "
+                          + "(iditinerario,idusuario,indestado,cantpersonas,costoreserva) "
+                          + "VALUES (" + iditinerario + "," + idusuario + "," + indestado + "," + cantpersonas + "," + costoreserva + ");";
+
+            try
+            {
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

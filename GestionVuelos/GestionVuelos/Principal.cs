@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+using Entidades;
 
 namespace GestionVuelos
 {
@@ -19,6 +20,8 @@ namespace GestionVuelos
         }
         
         private ObjectCache cacheName = MemoryCache.Default;
+
+        Usuarios usuario;
         private void idaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VuelosIda vuelosIda = new VuelosIda();
@@ -55,9 +58,10 @@ namespace GestionVuelos
 
         private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int idusuario = Convert.ToInt32(cacheName["IdUsuario"]);
+            usuario = new Usuarios();
+            usuario = (Usuarios)cacheName["cacheUsuario"];
 
-            consultaReserva reservas = new consultaReserva(idusuario);
+            consultaReserva reservas = new consultaReserva(usuario.IdUsuario);
             this.Visible = false;
             reservas.Visible = true;
         }

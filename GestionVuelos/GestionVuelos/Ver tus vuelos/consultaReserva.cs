@@ -29,5 +29,10 @@ namespace GestionVuelos
             Principal principal = new Principal();
             principal.Visible = true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
