@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,12 @@
     </Compile>
     <Compile Include="AgregarReserva.Designer.cs">
       <DependentUpon>AgregarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver tus vuelos\consultaReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver tus vuelos\consultaReserva.Designer.cs">
+      <DependentUpon>consultaReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="CrearUsuario.cs">
       <SubType>Form</SubType>
@@ -84,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="AgregarReserva.resx">
       <DependentUpon>AgregarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver tus vuelos\consultaReserva.resx">
+      <DependentUpon>consultaReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
@@ -132,9 +142,7 @@
       <Name>LogicaDatos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ver tus vuelos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

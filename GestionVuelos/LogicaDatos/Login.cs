@@ -151,8 +151,8 @@ namespace LogicaDatos
         public Usuarios buscarDatosUsuario(string nombreUsuario)
         {
             string query = "select idusuario,nombreu,nombred,apellidou,apellidod,tipdocumento,numdocumento, "
-                        +"usuariosis,passwordsis,celular,direccion,email "
-                        + "from usuarios where usuariosis = '"+nombreUsuario+"'";
+                        + "usuariosis,passwordsis,celular,direccion,email "
+                        + "from usuarios where usuariosis = '" + nombreUsuario + "'";
             Usuarios usu = null;
             try
             {
@@ -172,7 +172,7 @@ namespace LogicaDatos
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                             usu = new Usuarios
+                            usu = new Usuarios
                             {
                                 IdUsuario = Convert.ToInt32(dt.Rows[i]["idUsuario"]),
                                 Nombreu = dt.Rows[i]["nombreu"].ToString(),

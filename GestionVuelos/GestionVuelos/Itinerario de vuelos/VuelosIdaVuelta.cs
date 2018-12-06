@@ -95,7 +95,7 @@ namespace GestionVuelos
             int idCiudadDestino = Convert.ToInt32(valCiudadDestinoIdaVuelta.SelectedValue);
 
             ItinerarioVuelos itinerarioVuelos = new ItinerarioVuelos();
-            ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioVuelta(idCiudadOrigen, idCiudadDestino, fechaVuelta,iditinerario);
+            ItinerarioDeVuelos[] itinerarioDeVuelos = itinerarioVuelos.consultarItinerarioVuelta(idCiudadOrigen, idCiudadDestino, fechaVuelta, iditinerario);
 
             dataGridVuelosVuelta.DataSource = itinerarioDeVuelos;
 

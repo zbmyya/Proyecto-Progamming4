@@ -1,6 +1,4 @@
-﻿using Entidades;
-using LogicaDatos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Caching;
+using LogicaDatos;
+using Entidades;
 
 namespace GestionVuelos
 {
@@ -18,7 +19,8 @@ namespace GestionVuelos
         {
             InitializeComponent();
         }
-
+        
+        private ObjectCache cacheName = MemoryCache.Default;
         private void label4_Click(object sender, EventArgs e)
         {
             CrearUsuario crearUsuario = new CrearUsuario();
@@ -35,17 +37,18 @@ namespace GestionVuelos
                     bool flagLoin = login.validarLogin(valNombreUsuario.Text,valContrasena.Text);
                     if (flagLoin)
                     {
+                        CacheItemPolicy policy = new CacheItemPolicy();
+                        policy.Priority = CacheItemPriority.Default;
+
+                        Usuarios usu = new Usuarios();
+                        usu = login.buscarDatosUsuario(valNombreUsuario.Text);
+
+                        cacheName.Set("cacheUsuario",usu,policy);
+
                         Principal principal = new Principal();
 
                         principal.Visible = true;
                         Visible = false;
-
-                        Usuarios usu = new Usuarios();
-
-                        usu = login.buscarDatosUsuario(valNombreUsuario.Text);
-
-                        AgregarReserva agregarReserva = new AgregarReserva(usu);
-                        
                         
                     }
                     else

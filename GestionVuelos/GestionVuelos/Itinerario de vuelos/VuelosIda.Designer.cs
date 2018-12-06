@@ -134,12 +134,11 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.reservarVuelo);
             this.panel2.Controls.Add(this.dataGridVuelosIda);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(13, 150);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(648, 303);
+            this.panel2.Size = new System.Drawing.Size(648, 261);
             this.panel2.TabIndex = 1;
             // 
             // dataGridVuelosIda
@@ -162,10 +161,10 @@
             // 
             // reservarVuelo
             // 
-            this.reservarVuelo.Location = new System.Drawing.Point(507, 255);
+            this.reservarVuelo.Location = new System.Drawing.Point(536, 417);
             this.reservarVuelo.Name = "reservarVuelo";
             this.reservarVuelo.Size = new System.Drawing.Size(125, 45);
-            this.reservarVuelo.TabIndex = 3;
+            this.reservarVuelo.TabIndex = 4;
             this.reservarVuelo.Text = "Reservar vuelo";
             this.reservarVuelo.UseVisualStyleBackColor = true;
             this.reservarVuelo.Click += new System.EventHandler(this.reservarVuelo_Click);
@@ -174,7 +173,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 465);
+            this.ClientSize = new System.Drawing.Size(673, 471);
+            this.Controls.Add(this.reservarVuelo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "VuelosIda";

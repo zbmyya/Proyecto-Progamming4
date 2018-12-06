@@ -40,17 +40,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelVuelosIda = new System.Windows.Forms.Panel();
+            this.seleccionarVuelo = new System.Windows.Forms.Button();
             this.dataGridVuelosIda = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.dataGridVuelosVuelta = new System.Windows.Forms.DataGridView();
             this.panelVuelosVuelta = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridVuelosVuelta = new System.Windows.Forms.DataGridView();
-            this.seleccionarVuelo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVuelosIda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIda)).BeginInit();
-            this.panelVuelosVuelta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosVuelta)).BeginInit();
+            this.panelVuelosVuelta.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,7 +67,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(767, 154);
+            this.panel1.Size = new System.Drawing.Size(767, 165);
             this.panel1.TabIndex = 0;
             // 
             // btnConsultarIdaVuelta
@@ -167,19 +167,28 @@
             this.panelVuelosIda.Controls.Add(this.seleccionarVuelo);
             this.panelVuelosIda.Controls.Add(this.dataGridVuelosIda);
             this.panelVuelosIda.Controls.Add(this.label6);
-            this.panelVuelosIda.Location = new System.Drawing.Point(12, 167);
+            this.panelVuelosIda.Location = new System.Drawing.Point(12, 183);
             this.panelVuelosIda.Name = "panelVuelosIda";
-            this.panelVuelosIda.Size = new System.Drawing.Size(767, 275);
+            this.panelVuelosIda.Size = new System.Drawing.Size(767, 279);
             this.panelVuelosIda.TabIndex = 1;
-            this.panelVuelosIda.Visible = false;
             this.panelVuelosIda.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // seleccionarVuelo
+            // 
+            this.seleccionarVuelo.Location = new System.Drawing.Point(641, 230);
+            this.seleccionarVuelo.Name = "seleccionarVuelo";
+            this.seleccionarVuelo.Size = new System.Drawing.Size(109, 43);
+            this.seleccionarVuelo.TabIndex = 5;
+            this.seleccionarVuelo.Text = "Seleccionar vuelo";
+            this.seleccionarVuelo.UseVisualStyleBackColor = true;
+            this.seleccionarVuelo.Click += new System.EventHandler(this.seleccionarVuelo_Click);
             // 
             // dataGridVuelosIda
             // 
             this.dataGridVuelosIda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridVuelosIda.Location = new System.Drawing.Point(11, 38);
             this.dataGridVuelosIda.Name = "dataGridVuelosIda";
-            this.dataGridVuelosIda.Size = new System.Drawing.Size(753, 186);
+            this.dataGridVuelosIda.Size = new System.Drawing.Size(742, 186);
             this.dataGridVuelosIda.TabIndex = 3;
             // 
             // label6
@@ -188,18 +197,26 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(7, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(273, 24);
+            this.label6.Size = new System.Drawing.Size(239, 24);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Disponibilidad de vuelos ida";
+            this.label6.Text = "Disponibilidad de vuelos";
+            // 
+            // dataGridVuelosVuelta
+            // 
+            this.dataGridVuelosVuelta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridVuelosVuelta.Location = new System.Drawing.Point(11, 38);
+            this.dataGridVuelosVuelta.Name = "dataGridVuelosVuelta";
+            this.dataGridVuelosVuelta.Size = new System.Drawing.Size(753, 195);
+            this.dataGridVuelosVuelta.TabIndex = 4;
             // 
             // panelVuelosVuelta
             // 
             this.panelVuelosVuelta.Controls.Add(this.dataGridVuelosVuelta);
             this.panelVuelosVuelta.Controls.Add(this.label7);
-            this.panelVuelosVuelta.Location = new System.Drawing.Point(12, 446);
+            this.panelVuelosVuelta.Location = new System.Drawing.Point(12, 462);
             this.panelVuelosVuelta.Name = "panelVuelosVuelta";
             this.panelVuelosVuelta.Size = new System.Drawing.Size(767, 252);
-            this.panelVuelosVuelta.TabIndex = 2;
+            this.panelVuelosVuelta.TabIndex = 3;
             this.panelVuelosVuelta.Visible = false;
             // 
             // label7
@@ -212,30 +229,11 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Disponibilidad de vuelos vuelta";
             // 
-            // dataGridVuelosVuelta
-            // 
-            this.dataGridVuelosVuelta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridVuelosVuelta.Location = new System.Drawing.Point(11, 38);
-            this.dataGridVuelosVuelta.Name = "dataGridVuelosVuelta";
-            this.dataGridVuelosVuelta.Size = new System.Drawing.Size(753, 195);
-            this.dataGridVuelosVuelta.TabIndex = 4;
-            // 
-            // seleccionarVuelo
-            // 
-            this.seleccionarVuelo.Location = new System.Drawing.Point(655, 230);
-            this.seleccionarVuelo.Name = "seleccionarVuelo";
-            this.seleccionarVuelo.Size = new System.Drawing.Size(109, 43);
-            this.seleccionarVuelo.TabIndex = 4;
-            this.seleccionarVuelo.Text = "Seleccionar vuelo";
-            this.seleccionarVuelo.UseVisualStyleBackColor = true;
-            this.seleccionarVuelo.Click += new System.EventHandler(this.seleccionarVuelo_Click);
-            // 
             // VuelosIdaVuelta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(797, 795);
+            this.ClientSize = new System.Drawing.Size(786, 727);
             this.Controls.Add(this.panelVuelosVuelta);
             this.Controls.Add(this.panelVuelosIda);
             this.Controls.Add(this.panel1);
@@ -247,9 +245,9 @@
             this.panelVuelosIda.ResumeLayout(false);
             this.panelVuelosIda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosIda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosVuelta)).EndInit();
             this.panelVuelosVuelta.ResumeLayout(false);
             this.panelVuelosVuelta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelosVuelta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,9 +268,9 @@
         private System.Windows.Forms.Button btnConsultarIdaVuelta;
         private System.Windows.Forms.DataGridView dataGridVuelosIda;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panelVuelosVuelta;
-        private System.Windows.Forms.DataGridView dataGridVuelosVuelta;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button seleccionarVuelo;
+        private System.Windows.Forms.DataGridView dataGridVuelosVuelta;
+        private System.Windows.Forms.Panel panelVuelosVuelta;
+        private System.Windows.Forms.Label label7;
     }
 }

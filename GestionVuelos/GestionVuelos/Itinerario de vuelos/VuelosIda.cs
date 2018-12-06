@@ -76,7 +76,6 @@ namespace GestionVuelos
 
         private void reservarVuelo_Click(object sender, EventArgs e)
         {
-
             AgregarReserva agregarReserva = new AgregarReserva();
 
             int iditinerario = (int)dataGridVuelosIda.CurrentRow.Cells["Iditinerario"].Value;
@@ -88,9 +87,10 @@ namespace GestionVuelos
 
 
 
-            agregarReserva.datosAdicionales(iditinerario, idciudadorigen, idciudaddestino,ciudadorigen, ciudaddestino, preciovuelo);
+            agregarReserva.datosAdicionales(iditinerario, idciudadorigen, idciudaddestino, ciudadorigen, ciudaddestino, preciovuelo);
             agregarReserva.Visible = true;
             Enabled = true;
         }
+
     }
 }
