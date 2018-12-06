@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using LogicaDatos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using System.Runtime.Caching;
 using LogicaDatos;
 using Entidades;
+=======
+>>>>>>> 8dcc1543afb85acd89d30ecccefa779be2e4d014
 
 namespace GestionVuelos
 {
@@ -50,6 +55,13 @@ namespace GestionVuelos
 
                         principal.Visible = true;
                         Visible = false;
+
+                        Usuarios usu = new Usuarios();
+
+                        usu = login.buscarDatosUsuario(valNombreUsuario.Text);
+
+                        AgregarReserva agregarReserva = new AgregarReserva(usu);
+                        
                         
                     }
                     else

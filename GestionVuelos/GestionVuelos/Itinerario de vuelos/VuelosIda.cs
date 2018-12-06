@@ -74,5 +74,26 @@ namespace GestionVuelos
             principal.Visible = true;
         }
 
+<<<<<<< HEAD
+=======
+        private void reservarVuelo_Click(object sender, EventArgs e)
+        {
+
+            AgregarReserva agregarReserva = new AgregarReserva();
+
+            int iditinerario = (int)dataGridVuelosIda.CurrentRow.Cells["Iditinerario"].Value;
+            int idciudadorigen = (int)dataGridVuelosIda.CurrentRow.Cells["Idciudadorigen"].Value;
+            int idciudaddestino = (int)dataGridVuelosIda.CurrentRow.Cells["Idciudaddestino"].Value;
+            string ciudadorigen = (string)dataGridVuelosIda.CurrentRow.Cells["Ciudadorigen"].Value;
+            string ciudaddestino = (string)dataGridVuelosIda.CurrentRow.Cells["Ciudaddestino"].Value;
+            int preciovuelo = (int)dataGridVuelosIda.CurrentRow.Cells["Preciovuelo"].Value;
+
+
+
+            agregarReserva.datosAdicionales(iditinerario, idciudadorigen, idciudaddestino,ciudadorigen, ciudaddestino, preciovuelo);
+            agregarReserva.Visible = true;
+            Enabled = true;
+        }
+>>>>>>> 8dcc1543afb85acd89d30ecccefa779be2e4d014
     }
 }
