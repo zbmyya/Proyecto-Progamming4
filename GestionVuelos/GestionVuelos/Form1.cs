@@ -43,7 +43,7 @@ namespace GestionVuelos
                         Usuarios usu = new Usuarios();
                         usu = login.buscarDatosUsuario(valNombreUsuario.Text);
 
-                        cacheName.Set("IdUsuario",usu.IdUsuario,policy);
+                        cacheName.Set("Usuario",usu,policy);
 
                         Principal principal = new Principal();
 
